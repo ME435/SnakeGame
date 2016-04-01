@@ -73,7 +73,7 @@ public class SnakeView extends TileView {
      * captured.
      */
     private long mScore = 0;
-    private long mMoveDelay = 600;
+    private long mMoveDelay = 300;
     /**
      * mLastMove: tracks the absolute time when the snake last moved, and is used
      * to determine if a move should be made based on mMoveDelay.
@@ -162,13 +162,13 @@ public class SnakeView extends TileView {
         mSnakeTrail.add(new Coordinate(4, 7));
         mSnakeTrail.add(new Coordinate(3, 7));
         mSnakeTrail.add(new Coordinate(2, 7));
-        mNextDirection = NORTH;
+        mNextDirection = SOUTH;
 
         // Two apples to start with
         addRandomApple();
         addRandomApple();
 
-        mMoveDelay = 600;
+        mMoveDelay = 300;
         mScore = 0;
     }
 
@@ -497,7 +497,7 @@ public class SnakeView extends TileView {
                 addRandomApple();
                 
                 mScore++;
-                mMoveDelay *= 0.9;
+                mMoveDelay *= 0.8;
 
                 growSnake = true;
             }
