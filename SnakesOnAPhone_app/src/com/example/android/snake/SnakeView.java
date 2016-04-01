@@ -67,6 +67,7 @@ public class SnakeView extends TileView {
     private static final int YELLOW_STAR = 2;
     private static final int GREEN_STAR = 3;
 
+	// Modify these two parameters to make the game more challenging if you like.
 	private static final int INITIAL_MOVE_DELAY = 300;
 	private static final float MOVE_DELAY_MULTIPLIER = 0.85;
 	
