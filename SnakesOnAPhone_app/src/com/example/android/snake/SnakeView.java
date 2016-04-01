@@ -67,13 +67,16 @@ public class SnakeView extends TileView {
     private static final int YELLOW_STAR = 2;
     private static final int GREEN_STAR = 3;
 
+	private static final int INITIAL_MOVE_DELAY = 300;
+	private static final float MOVE_DELAY_MULTIPLIER = 0.85;
+	
     /**
      * mScore: used to track the number of apples captured mMoveDelay: number of
      * milliseconds between snake movements. This will decrease as apples are
      * captured.
      */
     private long mScore = 0;
-    private long mMoveDelay = 300;
+    private long mMoveDelay = INITIAL_MOVE_DELAY;
     /**
      * mLastMove: tracks the absolute time when the snake last moved, and is used
      * to determine if a move should be made based on mMoveDelay.
@@ -168,7 +171,7 @@ public class SnakeView extends TileView {
         addRandomApple();
         addRandomApple();
 
-        mMoveDelay = 300;
+        mMoveDelay = INITIAL_MOVE_DELAY;
         mScore = 0;
     }
 
@@ -497,7 +500,7 @@ public class SnakeView extends TileView {
                 addRandomApple();
                 
                 mScore++;
-                mMoveDelay *= 0.8;
+                mMoveDelay *= MOVE_DELAY_MULTIPLIER;
 
                 growSnake = true;
             }
