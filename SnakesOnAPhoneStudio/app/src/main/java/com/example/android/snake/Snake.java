@@ -22,8 +22,6 @@ import android.view.KeyEvent;
 import android.view.Window;
 import android.widget.TextView;
 
-import edu.rosehulman.me435.AccessoryActivity;
-
 /**
  * Snake: a simple game that everyone can enjoy.
  * 
@@ -33,7 +31,7 @@ import edu.rosehulman.me435.AccessoryActivity;
  * faster. Running into yourself or the walls will end the game.
  * 
  */
-public class Snake extends AccessoryActivity {
+public class Snake extends Activity {
 
     private SnakeView mSnakeView;
     
@@ -78,21 +76,5 @@ public class Snake extends AccessoryActivity {
     public void onSaveInstanceState(Bundle outState) {
         //Store the game state
         outState.putBundle(ICICLE_KEY, mSnakeView.saveState());
-    }
-
-    @Override
-    protected void onCommandReceived(String receivedCommand) {
-        super.onCommandReceived(receivedCommand);
-
-        if (receivedCommand.equalsIgnoreCase("U")) {
-            mSnakeView.onKeyDown(KeyEvent.KEYCODE_DPAD_UP, null);
-        } else if (receivedCommand.equalsIgnoreCase("D")) {
-            mSnakeView.onKeyDown(KeyEvent.KEYCODE_DPAD_DOWN, null);
-        } else if (receivedCommand.equalsIgnoreCase("L")) {
-            mSnakeView.onKeyDown(KeyEvent.KEYCODE_DPAD_LEFT, null);
-        } else if (receivedCommand.equalsIgnoreCase("R")) {
-            mSnakeView.onKeyDown(KeyEvent.KEYCODE_DPAD_RIGHT, null);
-        }
-
     }
 }
